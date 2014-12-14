@@ -426,10 +426,16 @@ call vundle#begin()
 "let vundle manage vundle(required)
 Plugin 'gmarik/Vundle.vim'
 
+
+"Text manipulation
+Plugin 'https://github.com/scrooloose/nerdcommenter.git'
+Plugin 'tpope/vim-surround'
+
+"Filesystem
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'kien/ctrlp.vim'
 
-"awesome git stuff in vim
+"git
 Plugin 'tpope/vim-fugitive'
 
 
@@ -439,6 +445,12 @@ Plugin 'tpope/vim-fugitive'
 " => Plugin customization
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""ctrlp customization
+"ctrlp search on word under cursor
+nmap <leader>gf :CtrlP<CR><C-\>w
+
+
+"""Nerdtree customization
 "Open Nerdtree on startup and new buffer
 "autocmd VimEnter * NERDTree
 "autocmd BufEnter * NERDTreeMirror
@@ -447,7 +459,7 @@ Plugin 'tpope/vim-fugitive'
 
 "If Nerdtree is only buffer quit buffer (close application)
 function! NERDTreeQuit()
-    redir => buffersoutput
+  redir => buffersoutput
       silent buffers
         redir END
          "1BufNo  2Mods.     3File           4LineNo

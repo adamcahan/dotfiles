@@ -1,3 +1,8 @@
+#12-9-14 helper stuff to check out a git feature branch, using incroud naming conventions.
+
+export FI='feature/ICR'
+  
+
 #12-8-14 git autocomplete
 source ~/git-completion.bash
 
@@ -9,8 +14,6 @@ function incroudgo {
   vagrant ssh
 }
 
-#check out a git feature branch, using incroud naming conventions.
-#(param) - name of the JIRA ticket. Letters may be lower case.
 
 #SSH and Bitbucket/git config
 SSH_ENV=$HOME/.ssh/environment
