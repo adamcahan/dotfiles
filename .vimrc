@@ -128,9 +128,9 @@ set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+"set ttyfast
 " Add mouse support
-if has(mouse)
-  set ttyfast "send more characters for redraws
+if has("mouse")
   set mouse=a
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
