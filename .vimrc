@@ -438,6 +438,9 @@ Plugin 'kien/ctrlp.vim'
 "git
 Plugin 'tpope/vim-fugitive'
 
+"Languages, formatting, etc
+Plugin 'elzr/vim-json'
+
 
 "TODO 12/5: INSTALL SNIPMATE
 
