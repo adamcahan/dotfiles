@@ -128,7 +128,11 @@ set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-
+" Add mouse support
+if has(mouse)
+  set ttyfast "send more characters for redraws
+  set mouse=a
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -440,7 +444,7 @@ Plugin 'tpope/vim-fugitive'
 
 "Languages, formatting, etc
 Plugin 'elzr/vim-json'
-
+Plugin 'scrooloose/syntastic'
 
 "TODO 12/5: INSTALL SNIPMATE
 
