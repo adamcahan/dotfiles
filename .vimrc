@@ -65,6 +65,9 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
+"Highlight current line of cursor
+set cursorline
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -130,9 +133,9 @@ set foldcolumn=1
 
 "set ttyfast
 " Add mouse support
-if has("mouse")
-  set mouse=a
-endif
+"if has("mouse")
+set mouse=a
+"endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,7 +143,7 @@ endif
 syntax enable
 
 try
-    colorscheme desert
+    colorscheme solarized
 catch
 endtry
 
@@ -415,6 +418,17 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+"Diff between currently edited file and unmodified version in filesystem.
+"From: http://vim.wikia.com/wiki/Diff_current_buffer_and_the_original_file
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
 "For Vundle to work properly
 set nocompatible
 filetype off
@@ -442,9 +456,12 @@ Plugin 'kien/ctrlp.vim'
 "git
 Plugin 'tpope/vim-fugitive'
 
-"Languages, formatting, etc
+"Languages, text formatting, etc
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
+
+"Visual
+Plugin 'altercation/vim-colors-solarized'
 
 "TODO 12/5: INSTALL SNIPMATE
 
