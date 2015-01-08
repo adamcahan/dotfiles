@@ -463,6 +463,9 @@ Plugin 'scrooloose/syntastic'
 "Visual
 Plugin 'altercation/vim-colors-solarized'
 
+"Enhanced marks, see and navigate better
+Plugin 'kshenoy/vim-signature'
+
 "TODO 12/5: INSTALL SNIPMATE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

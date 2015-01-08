@@ -14,6 +14,8 @@ function incroudgo {
   vagrant ssh
 }
 
+#TODO
+#Make running tests with mocha easier, for node.js / incroud infrastructure repo
 
 #SSH and Bitbucket/git config
 SSH_ENV=$HOME/.ssh/environment
