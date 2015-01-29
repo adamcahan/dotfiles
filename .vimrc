@@ -58,7 +58,7 @@ filetype indent on
 set autoread
 
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
+" like <leaderd>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
@@ -353,7 +353,10 @@ map <leader>s? z=
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scripbble
-map <leader>q :e ~/buffer<cr>
+map <leader>e :e ~/buffer<cr>
+
+" Easily close a buffer
+map <leader>q :q<CR>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
@@ -483,15 +486,30 @@ Plugin 'kshenoy/vim-signature'
 " => Plugin customization
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""vim-airline customization
+"Show the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+"let g:airline#extensions#tabline#fnamemod = ':t'
+"Use powerline fonts with airline
+let g:airline_powerline_fonts = 1
+
+"""Vim Fugitive customization
+nmap <leader>a :Gwrite<CR>
+
 """Tagbar customization
 "nmap  <leader>t :TagbarToggle<CR>
+
 """ctrlp customization
 "ctrlp search on word under cursor
 nmap <leader>gf :CtrlP<CR><C-\>w
 
 """"tern for vim customization
 nmap <leader>td :TernDef<CR>
-nmap <leader>td :TernDoc<CR>
+nmap <leader>tpd :TernDefPreview<CR>
+nmap <leader>tsd :TernDefSplit<CR>
+nmap <leader>ttd :TernDefTab<CR>
+nmap <leader>tD :TernDoc<CR>
 nmap <leader>tt :TernType<CR>
 nmap <leader>tr :TernRefs<CR>
 nmap <leader>tR :TernRename<CR>
