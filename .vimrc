@@ -150,8 +150,6 @@ catch
 endtry
 
 set background=dark
-colorscheme solarized
-let macvim_skip_colorscheme = 1 "override macvim default colorscheme
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -465,6 +463,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
 
+"Javascript-specific, to work w/node.js
+"Plugin 'valloric/youcompleteme'
+Plugin 'marijnh/tern_for_vim'
+
+"Project, IDE-type stuff
+Plugin 'majutsushi/tagbar'
+
 "Visual
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
@@ -478,10 +483,18 @@ Plugin 'kshenoy/vim-signature'
 " => Plugin customization
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""Tagbar customization
+"nmap  <leader>t :TagbarToggle<CR>
 """ctrlp customization
 "ctrlp search on word under cursor
 nmap <leader>gf :CtrlP<CR><C-\>w
 
+""""tern for vim customization
+nmap <leader>td :TernDef<CR>
+nmap <leader>td :TernDoc<CR>
+nmap <leader>tt :TernType<CR>
+nmap <leader>tr :TernRefs<CR>
+nmap <leader>tR :TernRename<CR>
 
 """Nerdtree customization
 "Open Nerdtree on startup and new buffer
