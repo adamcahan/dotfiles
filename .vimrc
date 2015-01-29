@@ -68,6 +68,8 @@ nmap <leader>w :w!<cr>
 "Highlight current line of cursor
 set cursorline
 
+"vimdiff is vertical
+set diffopt+=vertical
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -148,6 +150,8 @@ catch
 endtry
 
 set background=dark
+colorscheme solarized
+let macvim_skip_colorscheme = 1 "override macvim default colorscheme
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -448,6 +452,7 @@ Plugin 'gmarik/Vundle.vim'
 "Text manipulation
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround'
+Plugin 'ervandew/supertab'
 
 "Filesystem
 Plugin 'scrooloose/nerdtree.git'
@@ -462,6 +467,7 @@ Plugin 'scrooloose/syntastic'
 
 "Visual
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 
 "Enhanced marks, see and navigate better
 Plugin 'kshenoy/vim-signature'

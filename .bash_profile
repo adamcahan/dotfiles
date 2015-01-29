@@ -1,3 +1,27 @@
+#SSH and Bitbucket/git config
+SSH_ENV=$HOME/.ssh/environment
+   
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+                             
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
+
+
 #12-9-14 helper stuff to check out a git feature branch, using incroud naming conventions.
 
 export FI='feature/ICR'
@@ -16,30 +40,6 @@ function incroudgo {
 
 #TODO
 #Make running tests with mocha easier, for node.js / incroud infrastructure repo
-
-#SSH and Bitbucket/git config
-SSH_ENV=$HOME/.ssh/environment
-   
-# start the ssh-agent
-function start_agent {
-    echo "Initializing new SSH agent..."
-        # spawn ssh-agent
-            /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-                echo succeeded
-                    chmod 600 "${SSH_ENV}"
-                        . "${SSH_ENV}" > /dev/null
-                            /usr/bin/ssh-add
-                          }
-                             
-                          if [ -f "${SSH_ENV}" ]; then
-                                 . "${SSH_ENV}" > /dev/null
-                                      ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-                                              start_agent;
-                                                  }
-                                                else
-                                                      start_agent;
-                                                    fi
-
 
 #Set my command prompt to just show cur directory
 #To reset to original change settings to: \h:\W \u\$
