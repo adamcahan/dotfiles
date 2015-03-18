@@ -144,12 +144,20 @@ set mouse=a
 " Enable syntax highlighting
 syntax enable
 
+
+syntax on
+set background=light
+
+"let g:solarized_termtrans = 1
+"try
+"    colorscheme solarized
+"catch
+"endtry
+
 try
-    colorscheme solarized
+    colorscheme base16-default
 catch
 endtry
-
-set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -164,6 +172,9 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+"Make vertical separators and fillchars empty
+set fillchars=""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,9 +465,12 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
+Plugin 'ntpeters/vim-better-whitespace'
 
 "Filesystem
 Plugin 'scrooloose/nerdtree.git'
+"Make NERDTRee feel 'like a true panel'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 
 "git
@@ -465,6 +479,7 @@ Plugin 'tpope/vim-fugitive'
 "Languages, text formatting, etc
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-abolish'
 
 "Javascript-specific, to work w/node.js
 "Plugin 'valloric/youcompleteme'
@@ -472,13 +487,19 @@ Plugin 'marijnh/tern_for_vim'
 
 "Project, IDE-type stuff
 Plugin 'majutsushi/tagbar'
+Plugin 'SirVer/ultisnips'
 
 "Visual
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+"Base-16 colorscheme
+Plugin 'chriskempson/base16-vim'
 
 "Enhanced marks, see and navigate better
 Plugin 'kshenoy/vim-signature'
+
+"vim Improvement
+Plugin 'tpope/vim-repeat'
 
 "TODO 12/5: INSTALL SNIPMATE
 
@@ -493,6 +514,9 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
 "Use powerline fonts with airline
 let g:airline_powerline_fonts = 1
+
+"So vim handles powerline/airline fonts correctly
+set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
 
 """Vim Fugitive customization
 nmap <leader>a :Gwrite<CR>
@@ -546,6 +570,8 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
+"Toggle NERDTREETabsToggle open or closed - E for Explore!
+nmap <leader>E :NERDTreeTabsToggle<cr>
 
 """"""Add Plugins here
 

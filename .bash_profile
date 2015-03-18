@@ -1,6 +1,12 @@
 #SSH and Bitbucket/git config
 SSH_ENV=$HOME/.ssh/environment
-   
+
+#Helper function for naming terminal windows
+#Use: >title my title
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
 # start the ssh-agent
 function start_agent {
     echo "Initializing new SSH agent..."
@@ -23,9 +29,10 @@ fi
 
 
 #12-9-14 helper stuff to check out a git feature branch, using incroud naming conventions.
-
 export FI='feature/ICR'
-  
+
+#Start Kafka as a service (installed by homebrew) 3-17-15
+export kafkago='kafka-server-start.sh /usr/local/etc/kafka/server.properties'
 
 #12-8-14 git autocomplete
 source ~/git-completion.bash
