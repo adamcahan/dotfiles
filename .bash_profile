@@ -17,7 +17,7 @@ function start_agent {
     . "${SSH_ENV}" > /dev/null
     /usr/bin/ssh-add
 }
-                             
+
 if [ -f "${SSH_ENV}" ]; then
     . "${SSH_ENV}" > /dev/null
     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
@@ -28,7 +28,7 @@ else
 fi
 
 
-#12-9-14 helper stuff to check out a git feature branch, using incroud naming conventions.
+#12-9-14 helper stuff to check out a git feature branch, using naming conventions.
 export FI='feature/ICR'
 
 #Start Kafka as a service (installed by homebrew) 3-17-15
@@ -36,17 +36,6 @@ export kafkago='kafka-server-start.sh /usr/local/etc/kafka/server.properties'
 
 #12-8-14 git autocomplete
 source ~/git-completion.bash
-
-
-# go to correct dir and start vagrant
-function incroudgo {
-  cd /Users/dev/projects/incroud.com
-  vagrant up
-  vagrant ssh
-}
-
-#TODO
-#Make running tests with mocha easier, for node.js / incroud infrastructure repo
 
 #Set my command prompt to just show cur directory
 #To reset to original change settings to: \h:\W \u\$
@@ -65,10 +54,10 @@ rentr(){
 #Function for using entr to make life easier
 #NOTE WORKING AS OF 7-21-14
 run-entr-node(){
-  if [$2 == "all"] 
+  if [$2 == "all"]
   then
     find . -name $1 | entr -c node $1
-  else 
+  else
     find . *.js | entr -c node $1
   fi
 }

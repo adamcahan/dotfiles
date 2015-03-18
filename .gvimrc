@@ -1,6 +1,3 @@
-"set to incroud working dir
-cd ~/projects/incroud/infrastructure
-
 "macvimrc file. setting my colorscheme here
 "syntax enable
 "colorscheme solarized
