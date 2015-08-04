@@ -480,6 +480,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-abolish'
+Plugin 'mxw/vim-jsx' "JSX formatting for react.js
 
 "Javascript-specific, to work w/node.js
 "Plugin 'valloric/youcompleteme'
@@ -506,6 +507,14 @@ Plugin 'tpope/vim-repeat'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin customization
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""JSX formatting for React.js
+let g:jsx_ext_required = 0 "Allow JSX in normal JS files
+
+""""Configure syntastic to use ESLINT - this is for React.js
+"This depends on the global .elslintrc file
+"See https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+let g:syntastic_javascript_checkers = ['eslint']
 
 """"vim-airline customization
 "Show the list of buffers
