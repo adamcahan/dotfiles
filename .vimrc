@@ -454,7 +454,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins 
+" => Plugins
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "let vundle manage vundle(required)
@@ -480,11 +480,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-abolish'
-Plugin 'mxw/vim-jsx' "JSX formatting for react.js
+
+"Elm
+Plugin 'lambdatoast/elm.vim'
 
 "Javascript-specific, to work w/node.js
 "Plugin 'valloric/youcompleteme'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'pangloss/vim-javascript' "Better JS indenting and formatting
+Plugin 'mxw/vim-jsx' "React.js autoindent, formatting. Requires vim-javascript
 
 "Project, IDE-type stuff
 Plugin 'majutsushi/tagbar'
@@ -515,6 +519,7 @@ let g:jsx_ext_required = 0 "Allow JSX in normal JS files
 "This depends on the global .elslintrc file
 "See https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
 let g:syntastic_javascript_checkers = ['eslint']
+let g:jsx_ext_required = 0 "Allow JSX in normal JS files, and proper autoindent in JSX files
 
 """"vim-airline customization
 "Show the list of buffers
