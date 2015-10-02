@@ -27,23 +27,12 @@ else
     start_agent;
 fi
 
-
-#12-9-14 helper stuff to check out a git feature branch, using naming conventions.
-export FI='feature/ICR'
-
-#Start Kafka as a service (installed by homebrew) 3-17-15
-export kafkago='kafka-server-start.sh /usr/local/etc/kafka/server.properties'
-
 #12-8-14 git autocomplete
 source ~/git-completion.bash
 
 #Set my command prompt to just show cur directory
 #To reset to original change settings to: \h:\W \u\$
 export PS1='\W $ '
-
-#Aliases for cassandra db to make life easy - July 20 2014
-alias start-cassandra='launchctl load /usr/local/opt/cassandra/homebrew.mxcl.cassandra.plist'
-alias start-cqlsh='cqlsh -u cassandra -p cassandra'
 
 
 #Make using entr easier, syntax: 'rentr filename executable'
