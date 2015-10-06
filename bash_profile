@@ -54,7 +54,8 @@ run-entr-node(){
 alias run-entr-node=run-entr-node
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 export NVM_DIR="/Users/dev/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
