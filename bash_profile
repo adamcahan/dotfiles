@@ -40,18 +40,6 @@ rentr(){
   find . -name $1 | entr -c $2 $1
 }
 
-#Function for using entr to make life easier
-#NOTE WORKING AS OF 7-21-14
-run-entr-node(){
-  if [$2 == "all"]
-  then
-    find . -name $1 | entr -c node $1
-  else
-    find . *.js | entr -c node $1
-  fi
-}
-
-alias run-entr-node=run-entr-node
 
 ### Added by the Heroku Toolbelt
 #export PATH="/usr/local/heroku/bin:$PATH"
