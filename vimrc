@@ -71,6 +71,9 @@ set cursorline
 "vimdiff is vertical
 set diffopt+=vertical
 
+"Cliboard stuff
+set clipboard=unnamed
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -135,9 +138,15 @@ set foldcolumn=1
 
 "set ttyfast
 " Add mouse support
-"if has("mouse")
-set mouse=a
-"endif
+if has("mouse")
+    set mouse=a
+endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General and Mode-Switching
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Remap escape key for exiting insert mode
+"map jk <Esc>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -196,8 +205,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -460,6 +469,7 @@ call vundle#begin()
 "let vundle manage vundle(required)
 Plugin 'gmarik/Vundle.vim'
 
+""""""Add Plugins here
 
 "Text manipulation
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
@@ -484,15 +494,24 @@ Plugin 'tpope/vim-abolish'
 "Elm
 Plugin 'lambdatoast/elm.vim'
 
-"Javascript-specific, to work w/node.js
+"Html, CSS
+Plugin 'mattn/emmet-vim' "Emmet
+
+"Javascript-specific
 "Plugin 'valloric/youcompleteme'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'pangloss/vim-javascript' "Better JS indenting and formatting
 Plugin 'mxw/vim-jsx' "React.js autoindent, formatting. Requires vim-javascript
+Plugin 'othree/javascript-libraries-syntax.vim' "Syntax for JS libraries
+"AngularJS
+Plugin 'burnettk/vim-angular'
 
 "Project, IDE-type stuff
 Plugin 'majutsushi/tagbar'
+
+"Snippets
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 "Visual
 Plugin 'altercation/vim-colors-solarized'
@@ -508,9 +527,31 @@ Plugin 'tpope/vim-repeat'
 
 "TODO 12/5: INSTALL SNIPMATE
 
+""""" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin customization
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"TODO: Ultisnips not working ..... 11/3/15
+""""Ultisnips
+let g:UltisnipsExpandTrigger="<tab>"
+let g:UltisnipsJumpForwardTrigger="<c-b>"
+let g:UltisnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsListSnippets="<c-s>"
 
 """"JSX formatting for React.js
 let g:jsx_ext_required = 0 "Allow JSX in normal JS files
@@ -587,23 +628,10 @@ autocmd WinEnter * call NERDTreeQuit()
 "Toggle NERDTREETabsToggle open or closed - E for Explore!
 nmap <leader>E :NERDTreeTabsToggle<cr>
 
-""""""Add Plugins here
+
+"Matchit plugin for % tag matching on html tags
+runtime macros/matchit.vim
 
 
-
-""""" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 set number
