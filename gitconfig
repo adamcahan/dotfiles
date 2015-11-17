@@ -15,9 +15,10 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
+	addc = !git add -A && git commit
 [core]
-    excludesfile = /Users/dev/.gitignore_global
-    editor = /usr/bin/vim
+    excludesfile = /Users/$HOME/dev/.gitignore_global
+	editor = /usr/local/bin/vim
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path =
