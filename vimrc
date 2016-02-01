@@ -503,6 +503,10 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'pangloss/vim-javascript' "Better JS indenting and formatting
 Plugin 'mxw/vim-jsx' "React.js autoindent, formatting. Requires vim-javascript
 Plugin 'othree/javascript-libraries-syntax.vim' "Syntax for JS libraries
+
+"JSHint -- not managed via Vundle
+set runtimepath+=~/.vim/bundle/jshint2.vim/
+
 "AngularJS
 Plugin 'burnettk/vim-angular'
 
