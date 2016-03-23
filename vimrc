@@ -560,10 +560,12 @@ let g:UltiSnipsListSnippets="<c-s>"
 """"JSX formatting for React.js
 let g:jsx_ext_required = 0 "Allow JSX in normal JS files
 
-""""Configure syntastic to use ESLINT - this is for React.js
+""""For react.js, configure syntastic to use ESLINT
 "This depends on the global .elslintrc file
 "See https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
-let g:syntastic_javascript_checkers = ['eslint']
+""""
+"make sure the javascript checkers listed are installed
+let g:syntastic_javascript_checkers = ['jshint']
 let g:jsx_ext_required = 0 "Allow JSX in normal JS files, and proper autoindent in JSX files
 
 """""Syntastic javascript error highlighting config
@@ -645,6 +647,30 @@ nmap <leader>E :NERDTreeTabsToggle<cr>
 
 "Matchit plugin for % tag matching on html tags
 runtime macros/matchit.vim
+
+"For syntastic and jshint, find a .jshintrc file
+function s:find_jshintrc(dir)
+  let l:found = globpath(a:dir, '.jshintrc')
+  if filereadable(l:found)
+    return l:found
+  endif
+
+  let l:parent = fnamemodify(a:dir, ':h')
+  if l:parent != a:dir
+    return s:find_jshintrc(l:parent)
+  endif
+
+  return "~/.jshintrc"
+endfunction
+
+function UpdateJsHintConf()
+  let l:dir = expand('%:p:h')
+  let l:jshintrc = s:find_jshintrc(l:dir)
+  "let g:syntastic_javascript_jshint_conf = l:jshintrc
+  let g:syntastic_javascript_jshint_args = '--config /Users/acahan/.jshintrc'
+endfunction
+
+au BufEnter * call UpdateJsHintConf()
 
 
 

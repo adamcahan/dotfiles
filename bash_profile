@@ -58,9 +58,6 @@ watch-portal(){
 #export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-export NVM_DIR="/Users/dev/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 ####Docker env vars -- default machine####
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
@@ -125,3 +122,6 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+export NVM_DIR="/Users/dev/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
