@@ -519,7 +519,9 @@ Plugin 'honza/vim-snippets'
 
 "Visual
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline' "old
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-ariline-themes'
 "Base-16 colorscheme
 Plugin 'chriskempson/base16-vim'
 
@@ -579,6 +581,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 """"vim-airline customization
+"Theme
+"let g:airline_theme='solarized'
 "Show the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
