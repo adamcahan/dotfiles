@@ -521,7 +521,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'bling/vim-airline' "old
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-ariline-themes'
+Plugin 'vim-airline/vim-airline-themes'
 "Base-16 colorscheme
 Plugin 'chriskempson/base16-vim'
 
