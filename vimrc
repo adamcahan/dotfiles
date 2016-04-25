@@ -157,11 +157,11 @@ syntax enable
 syntax on
 set background=light
 
-"let g:solarized_termtrans = 1
-"try
-"    colorscheme solarized
-"catch
-"endtry
+let g:solarized_termtrans = 1
+try
+    colorscheme solarized
+catch
+endtry
 
 try
     colorscheme base16-default
@@ -582,7 +582,7 @@ let g:syntastic_check_on_wq = 0
 
 """"vim-airline customization
 "Theme
-"let g:airline_theme='solarized'
+let g:airline_theme='solarized'
 "Show the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
