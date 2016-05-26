@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# clock-git
+# Count the number of lines in a git repository
+# From: http://stackoverflow.com/a/29012789
+# Usage: The script takes one argument, which is anything git clone will accept.
+# Example: cloc-git https://github.com/evalEmpire/perl5i.git
+
+git clone --depth 1 "$1" temp-linecount-repo &&
+  printf "('temp-linecount-repo' will be deleted automatically)\n\n\n" &&
+    cloc temp-linecount-repo &&
+      rm -rf temp-linecount-repo
