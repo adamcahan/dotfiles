@@ -31,8 +31,8 @@ else
     start_agent;
 fi
 
-#12-8-14 git autocomplete
-source ~/dev/git-completion.bash
+#9-8-16 git autocomplete
+source ~/git-completion.bash
 
 #11/9/15
 #scmPuff - git ui sugar tool - load aliases
@@ -123,5 +123,10 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 
-export NVM_DIR="/Users/dev/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# node version manager
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+
+# old
+#export NVM_DIR="/Users/dev/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
