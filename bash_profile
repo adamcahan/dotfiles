@@ -48,23 +48,6 @@ rentr(){
   find . -name $1 | entr -c $2 $1
 }
 
-#11/11/15 -- Getty -- Portal Project -- entr helper
-#Run from project_dir/
-watch-portal(){
-  find app/ -name "*.html" -o -name "*.js" | entr reload-browser chrome
-}
-
-### Added by the Heroku Toolbelt
-#export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-####Docker env vars -- default machine####
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/acahan/.docker/machine/machines/default"
-export DOCKER_MACHINE_NAME="default"
-export DOCKER_MACHINE_IP="192.168.99.100:2376"
-
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -126,7 +109,3 @@ fi
 # node version manager
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
-
-# old
-#export NVM_DIR="/Users/dev/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
