@@ -32,7 +32,7 @@ else
 fi
 
 #9-8-16 git autocomplete
-source ~/git-completion.bash
+source ~/.git-completion.bash
 
 #11/9/15
 #scmPuff - git ui sugar tool - load aliases
