@@ -205,8 +205,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
@@ -483,6 +483,9 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 
+"Bash interaction
+Plugin 'tpope/vim-eunuch'
+
 "git
 Plugin 'tpope/vim-fugitive'
 
@@ -519,7 +522,6 @@ Plugin 'honza/vim-snippets'
 
 "Visual
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'bling/vim-airline' "old
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Base-16 colorscheme
