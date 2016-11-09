@@ -569,7 +569,7 @@ let g:jsx_ext_required = 0 "Allow JSX in normal JS files
 "See https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
 """"
 "make sure the javascript checkers listed are installed
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint'] "alternative: 'jshint'
 let g:jsx_ext_required = 0 "Allow JSX in normal JS files, and proper autoindent in JSX files
 
 """""Syntastic tidy-html checker ignoring angular tags, etc...
