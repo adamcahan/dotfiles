@@ -5,6 +5,13 @@ SSH_ENV=$HOME/.ssh/environment
 export VISUAL=/usr/local/bin/vim
 export EDITOR=/usr/local/bin/vim
 
+##Path stuff##
+
+#Elixir
+export PATH="$PATH:/usr/local/bin/elixir/bin"
+#Postgres
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
 #Helper function for naming terminal windows
 #Use: >title my title
 function title {
@@ -46,6 +53,11 @@ export PS1='\W $ '
 #Make using entr easier, syntax: 'rentr filename executable'
 rentr(){
   find . -name $1 | entr -c $2 $1
+}
+
+#Entr shortcut for cairneche
+cairneche(){
+    find ./web/static/js/ | entr sh -c './scripts/package_js.sh && ./scripts/deploy_js.sh'
 }
 
 ###-begin-npm-completion-###
@@ -112,3 +124,21 @@ export NVM_DIR="$HOME/.nvm"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="/usr/local/sbin:$PATH"
+
+### Aliases for nginx ###
+### From: https://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
+alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+alias nginx.restart='nginx.stop && nginx.start'
+alias php-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+alias php-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+alias php-fpm.restart='php-fpm.stop && php-fpm.start'
+alias mysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias mysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias mysql.restart='mysql.stop && mysql.start'
+alias nginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
+alias nginx.logs.access='tail -250f /usr/local/etc/nginx/logs/access.log'
+alias nginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.access.log'
+alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/default-ssl.access.log'
+alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
+alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'

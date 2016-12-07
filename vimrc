@@ -471,6 +471,9 @@ Plugin 'gmarik/Vundle.vim'
 
 """"""Add Plugins here
 
+"In-buffer navigation
+Plugin 'easymotion/vim-easymotion'
+
 "Text manipulation
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround'
@@ -493,6 +496,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-abolish'
+
+"Elixir
+Plugin 'elixir-lang/vim-elixir'
 
 "Elm
 Plugin 'lambdatoast/elm.vim'
