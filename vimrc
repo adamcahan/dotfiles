@@ -640,7 +640,7 @@ let g:airline_theme='solarized'
 "Show the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
-"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
 "Use powerline fonts with airline
 let g:airline_powerline_fonts = 1
 
