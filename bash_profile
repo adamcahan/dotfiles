@@ -5,45 +5,16 @@ SSH_ENV=$HOME/.ssh/environment
 export VISUAL=/usr/local/bin/vim
 export EDITOR=/usr/local/bin/vim
 
-##Path stuff##
-
-#Elixir
-export PATH="$PATH:/usr/local/bin/elixir/bin"
-#Postgres
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-
 #Helper function for naming terminal windows
 #Use: >title my title
 function title {
     echo -ne "\033]0;"$*"\007"
 }
 
-# start the ssh-agent
-function start_agent {
-    echo "Initializing new SSH agent..."
-    # spawn ssh-agent
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add
-}
-
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
-
-#9-8-16 git autocomplete
-source ~/.git-completion.bash
 
 #11/9/15
 #scmPuff - git ui sugar tool - load aliases
-eval "$(scmpuff init -s)"
+#eval "$(scmpuff init -s)"
 
 #Set my command prompt to just show cur directory
 #To reset to original change settings to: \h:\W \u\$
@@ -119,26 +90,26 @@ fi
 ###-end-npm-completion-###
 
 # node version manager
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+#export NVM_DIR="$HOME/.nvm"
+#. "$(brew --prefix nvm)/nvm.sh"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-export PATH="/usr/local/sbin:$PATH"
+#test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+#export PATH="/usr/local/sbin:$PATH"
 
 ### Aliases for nginx ###
 ### From: https://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
-alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
-alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
-alias nginx.restart='nginx.stop && nginx.start'
-alias php-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
-alias php-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
-alias php-fpm.restart='php-fpm.stop && php-fpm.start'
-alias mysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
-alias mysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
-alias mysql.restart='mysql.stop && mysql.start'
-alias nginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
-alias nginx.logs.access='tail -250f /usr/local/etc/nginx/logs/access.log'
-alias nginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.access.log'
-alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/default-ssl.access.log'
-alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
-alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
+#alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+#alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+#alias nginx.restart='nginx.stop && nginx.start'
+#alias php-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+#alias php-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+#alias php-fpm.restart='php-fpm.stop && php-fpm.start'
+#alias mysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+#alias mysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+#alias mysql.restart='mysql.stop && mysql.start'
+#alias nginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
+#alias nginx.logs.access='tail -250f /usr/local/etc/nginx/logs/access.log'
+#alias nginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.access.log'
+#alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/default-ssl.access.log'
+#alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
+#alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
