@@ -474,6 +474,9 @@ Plugin 'gmarik/Vundle.vim'
 "In-buffer navigation
 Plugin 'easymotion/vim-easymotion'
 
+"Tmux key bindings
+Plugin 'christoomey/vim-tmux-navigator'
+
 "Text manipulation
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-surround'
