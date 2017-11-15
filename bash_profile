@@ -60,6 +60,11 @@ cairneche(){
     find ./web/static/js/ | entr sh -c './scripts/package_js.sh && ./scripts/deploy_js.sh'
 }
 
+#Entr shortcut for cairngis
+cairngis(){
+    find ./web/static/ | entr sh -c 'npm run build:dev'
+}
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -142,3 +147,6 @@ alias nginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.ac
 alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/default-ssl.access.log'
 alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
 alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
+
+#For kiex elixir version manager. Added 11/8/17
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
