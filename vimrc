@@ -381,6 +381,21 @@ map <leader>q :q<CR>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" Insert Journal Entry Header function
+"function! InsertJournalHeader()
+"    "Not working
+"    execute "normal! :pu=strftime('%c')<cr>"
+"    "works
+"    execute "normal! O\<esc>"
+"    "Not working
+"    execute "normal! :80a-<esc>"
+"    "works
+"    execute "normal! O\<esc>"
+"endfunction
+
+"Quickly insert journal entry header
+"map <leader>jr :call InsertJournalHeader()<cr>
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -509,12 +524,19 @@ Plugin 'lambdatoast/elm.vim'
 "Html, CSS
 Plugin 'mattn/emmet-vim' "Emmet
 
+"Typescript
+""Syntax file and other settings for Typescript
+Plugin 'leafgarland/typescript-vim'
+
 "Javascript-specific
 "Plugin 'valloric/youcompleteme'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'pangloss/vim-javascript' "Better JS indenting and formatting
 Plugin 'mxw/vim-jsx' "React.js autoindent, formatting. Requires vim-javascript
 Plugin 'othree/javascript-libraries-syntax.vim' "Syntax for JS libraries
+
+"Highlight stuff in template literals
+Plugin 'Quramy/vim-js-pretty-template'
 
 "JSHint -- not managed via Vundle
 set runtimepath+=~/.vim/bundle/jshint2.vim/
