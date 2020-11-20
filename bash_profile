@@ -50,19 +50,10 @@ eval "$(scmpuff init -s)"
 export PS1='\W $ '
 
 
+#entr: http://eradman.com/entrproject/
 #Make using entr easier, syntax: 'rentr filename executable'
 rentr(){
   find . -name $1 | entr -c $2 $1
-}
-
-#Entr shortcut for cairneche
-cairneche(){
-    find ./web/static/js/ | entr sh -c './scripts/package_js.sh && ./scripts/deploy_js.sh'
-}
-
-#Entr shortcut for cairngis
-cairngis(){
-    find ./web/static/ | entr sh -c 'npm run build:dev'
 }
 
 ###-begin-npm-completion-###
