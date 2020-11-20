@@ -1,6 +1,6 @@
 [user]
-    name = adamcee
-    email = adam.cahan@gmail.com
+    name = <MY-GIT-USERNAME>
+    email = <MY-EMAIL>
 [crendential]
     helper = osxkeychain
 [filter "media"]
