@@ -69,7 +69,12 @@ nmap <leader>w :w!<cr>
 set cursorline
 
 "vimdiff is vertical
-set diffopt+=vertical
+" Old: set diffopt+=vertical
+" See: https://github.com/thoughtbot/dotfiles/issues/655
+if &diff
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
 
 "Cliboard stuff
 set clipboard=unnamed
@@ -516,10 +521,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-abolish'
 
 "Elixir
-Plugin 'elixir-lang/vim-elixir'
+" Plugin 'elixir-lang/vim-elixir'
 
 "Elm
-Plugin 'lambdatoast/elm.vim'
+" Plugin 'lambdatoast/elm.vim'
 
 "Html, CSS
 Plugin 'mattn/emmet-vim' "Emmet
@@ -541,20 +546,14 @@ Plugin 'Quramy/vim-js-pretty-template'
 "JSHint -- not managed via Vundle
 set runtimepath+=~/.vim/bundle/jshint2.vim/
 
-"AngularJS
-Plugin 'burnettk/vim-angular'
-
 "Project, IDE-type stuff
 Plugin 'majutsushi/tagbar'
-
-"Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 
 "Visual
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 "Base-16 colorscheme
 Plugin 'chriskempson/base16-vim'
 
@@ -564,7 +563,11 @@ Plugin 'kshenoy/vim-signature'
 "vim Improvement
 Plugin 'tpope/vim-repeat'
 
-"TODO 12/5: INSTALL SNIPMATE
+"fzf fuzzy-finder.
+"See: https://github.com/junegunn/fzf/blob/master/README-VIM.md
+" tl;dr is fzf.vim requires fzf to be already installed. Then we add it to vim's runtimepath.
+set rtp+=/usr/local/opt/fzf
+Plugin 'junegunn/fzf.vim'
 
 """"" All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -584,13 +587,6 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin customization
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"TODO: Ultisnips not working ..... 11/3/15
-""""Ultisnips
-let g:UltisnipsExpandTrigger="<tab>"
-let g:UltisnipsJumpForwardTrigger="<c-b>"
-let g:UltisnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsListSnippets="<c-s>"
 
 """"JSX formatting for React.js
 let g:jsx_ext_required = 0 "Allow JSX in normal JS files
@@ -754,7 +750,6 @@ function UpdateJsHintConf()
 endfunction
 
 au BufEnter * call UpdateJsHintConf()
-
 
 
 set number
